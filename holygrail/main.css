@@ -1,0 +1,53 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+main {
+    display: flex;
+    flex-basis: 800px;
+}
+
+nav {
+    background: orange;
+    flex-basis: 20%;
+    order: -1;
+}
+
+aside {
+    background: orange ;
+    flex-basis: 20%;
+}
+
+article {
+    background: red;
+    flex-basis: 60%;
+}
+
+
+
+header, footer {
+    background: lightblue;
+    flex-basis: 100px;
+    /*display: flex;*/
+    /*justify-content: space-between;*/
+}
+
+@media all and (max-width: 640px) {
+    main {
+        flex-direction: column;
+    }
+    nav {
+        order: 0;
+    }
+}
+
+
+
