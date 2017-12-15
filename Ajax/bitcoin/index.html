@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AdvancedWebDev</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="main.css" type="text/css" />
+</head>
+<body>
+    <h1>Bitcoin Current Price is: <span id="price"></span></h1>
+
+    <button id="btn">Refresh Data</button>
+    
+    
+    
+    <script>
+        
+        var btn = document.querySelector("#btn");
+        var priceSpan = document.querySelector("#price");
+        var currency = "USD";
+        
+        //listen for clicks
+        btn.addEventListener("click" , function() {
+            var XHR = new XMLHttpRequest();
+            
+            XHR.onreadystatechange = function() {
+                if(XHR.readyState == 4 && XHR.status == 200) {
+                    var data= JSON.parse(XHR.responseText);
+                    var price = data.bpi[currency].rate;
+                    priceSpan.innerText = price + " " + currency;
+                } 
+            };
+            
+            XHR.open("GET", "https://api.coindesk.com/v1/bpi/currentprice.json");
+            XHR.send();
+        });
+        
+        // https://www.coindesk.com/api/
+    </script>
+</body>
+</html>

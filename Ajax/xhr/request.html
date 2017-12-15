@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    
+    <body>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    <script
+			  src="https://code.jquery.com/jquery-3.2.1.js"
+			  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+			  crossorigin="anonymous"></script>   
+        
+    <script>
+    
+    $(document).ready(function(){ 
+        var XHR = new XMLHttpRequest();
+
+        XHR.onreadystatechange = function() {
+            if(XHR.readyState == 4) {
+                if(XHR.status == 200) {
+                   console.log(XHR.responseText); 
+                } else {
+                    console.log("There was a problem");
+                }
+                
+            }
+        }
+        
+        XHR.open("GET", "https://api.github.com/zen");
+        XHR.send();
+        
+    });
+    
+    </script>
+    
+    </body>
+</html>
+
+
+
+
